@@ -1,7 +1,7 @@
 <template>
     <section class="toy-edit">
         <pre>{{ toyToEdit }}</pre>
-        <form @submit.prevent="saveToy">
+        <form v-if="toyToEdit" @submit.prevent="saveToy">
             <input type="text" v-model="toyToEdit.name" required placeholder="Enter toy name">
             <input type="number" v-model="toyToEdit.price" placeholder="Enter price">
             <br>
@@ -15,8 +15,6 @@
         </form>
     </section>
 </template>
-
-
 <script>
 import { toyService } from '@/services/toy.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '@/services/event-bus.service.js'
@@ -31,14 +29,13 @@ export default {
     },
     created() {
         this.loadToy()
-
     },
     methods: {
         loadToy() {
             const { toyId } = this.$route.params
             if (toyId) {
                 this.$store.dispatch({ type: 'getById', toyId })
-                    .then(currToy => this.toyToEdit = currToy)
+                    .then(currToy => this.toyToEdit = {...currToy})
                     .catch(err => showErrorMsg('cant get toy'))
             } else {
                 this.toyToEdit = toyService.getEmptyToy()
@@ -54,7 +51,27 @@ export default {
         }
     },
     computed: {
-
     }
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
