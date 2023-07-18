@@ -26,7 +26,7 @@ export default {
     emits: ['removed'],
     data() {
         return {
-            imageUrl: '../src/assets/img/toys.png'
+            imageUrl: '@/assets/img/toys.png'
         }
     },
     created() {
