@@ -17,8 +17,8 @@
 // import { toyService } from '@/services/toy.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '@/services/event-bus.service.js'
 import { utilService } from '@/services/util.service.js'
-import ToyList from '@/components/ToyList.vue'
-import ToyFilter from '@/components/ToyFilter.vue'
+import ToyList from '@/cmps/ToyList.vue'
+import ToyFilter from '@/cmps/ToyFilter.vue'
 
 export default {
     name: 'toyIndex',

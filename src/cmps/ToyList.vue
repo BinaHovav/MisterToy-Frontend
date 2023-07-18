@@ -9,7 +9,7 @@ import ToyPreview from './ToyPreview.vue'
 export default {
     name: 'toyList',
     emits: ['removed'],
-    props: ['toys'],
+    props: {toys: {type: Array, required:true}},
     components: {
         ToyPreview
     }

@@ -2,7 +2,7 @@ import { toyService } from '../services/toy.service.local.js'
 
 export const toyStore = {
   state: {
-    toys: null,
+    toys: [],
     currToy: null,
     filterBy: {
       txt: '',
@@ -42,16 +42,16 @@ export const toyStore = {
     setCurrToy(state, { toy }) {
       state.currToy = toy
     },
-    addToy(state, { toy }) {
-      state.toys.unshift(toy)
+    addToy({ toys }, { toy }) {
+      toys.unshift(toy)
     },
-    updateToy(state, { toy }) {
-      const idx = state.toys.findIndex((currToy) => currToy._id === toy._id)
-      state.toys.splice(idx, 1, toy)
+    updateToy({ toys }, { toy }) {
+      const idx = toys.findIndex((currToy) => currToy._id === toy._id)
+      toys.splice(idx, 1, toy)
     },
-    removeToy(state, { toyId }) {
-      const idx = state.toys.findIndex((toy) => toy._id === toyId)
-      state.toys.splice(idx, 1)
+    removeToy({ toys }, { toyId }) {
+      const idx = toys.findIndex((toy) => toy._id === toyId)
+      toys.splice(idx, 1)
     },
     setFilterBy(state, { filterBy }) {
       state.filterBy = filterBy

@@ -22,7 +22,8 @@
 <script>
 export default {
     name: 'toyPreview',
-    props: ['toy'],
+    props: {toy: {type: Object, required:true}
+    },
     emits: ['removed'],
 }
 </script>
