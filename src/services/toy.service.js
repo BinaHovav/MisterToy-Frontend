@@ -17,7 +17,7 @@ function getById(toyId) {
 }
 
 function remove(toyId) {
-	httpService.delete(`toy/${toyId}`)
+	return httpService.delete(`toy/${toyId}`)
 }
 
 function save(toy) {

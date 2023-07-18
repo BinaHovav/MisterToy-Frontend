@@ -1,4 +1,4 @@
-import { toyService } from '../services/toy.service.local.js'
+import { toyService } from '../services/toy.service.js'
 
 export const toyStore = {
   state: {
@@ -84,8 +84,8 @@ export const toyStore = {
       return toyService.remove(payload.toyId).then(() => {
         const toyTxt = state.toys.find((toy) => toy._id === payload.toyId).txt
         commit(payload) // {type: 'removeToy', toyId}
-        const activity = { txt: `Removed the toy ${toyTxt}`, at: Date.now() }
-        dispatch({ type: 'addActivity', activity })
+        // const activity = { txt: `Removed the toy ${toyTxt}`, at: Date.now() }
+        // dispatch({ type: 'addActivity', activity })
       })
     },
     getById({ commit }, { toyId }) {
