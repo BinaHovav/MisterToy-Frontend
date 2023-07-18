@@ -4,35 +4,11 @@ export const toyStore = {
   state: {
     toys: [],
     currToy: null,
-    filterBy: {
-      txt: '',
-      minPrice: 0,
-      labels: [],
-      inStock: false,
-    },
   },
   getters: {
-    toysToDisplay({ filterBy, toys }) {
+    toysToDisplay({ toys }) {
       if (!toys) return null
-
-      const { txt, minPrice, labels, inStock } = filterBy
-      let filteredToys = toys
-
-      const regex = new RegExp(txt, 'i')
-      filteredToys = filteredToys.filter((toy) => regex.test(toy.name))
-
-      filteredToys = filteredToys.filter((toy) => toy.price >= minPrice)
-
-      if (labels) {
-        filteredToys = filteredToys.filter((toy) => labels.every((label) => toy.labels.includes(label)))
-      }
-      if (inStock) {
-        filteredToys = filteredToys.filter((toy) => toy.inStock)
-      }
-      // const startIdx = pageIdx * pageSize
-      // filteredToys = filteredToys.slice(startIdx, startIdx + pageSize)
-
-      return filteredToys
+      return toys
     },
   },
   mutations: {
@@ -53,16 +29,13 @@ export const toyStore = {
       const idx = toys.findIndex((toy) => toy._id === toyId)
       toys.splice(idx, 1)
     },
-    setFilterBy(state, { filterBy }) {
-      state.filterBy = filterBy
-    },
   },
   actions: {
-    loadToys(context) {
+    loadToys({ commit }, { filterBy }) {
       toyService
-        .query()
+        .query(filterBy)
         .then((toys) => {
-          context.commit({ type: 'setToys', toys })
+          commit({ type: 'setToys', toys })
         })
         .catch((err) => {
           throw err

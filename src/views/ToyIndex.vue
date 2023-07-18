@@ -25,38 +25,23 @@ export default {
     emits: ['removed'],
     data() {
         return {
-            filterBy: {
-                txt: '',
-                minPrice: 0,
-                labels: [],
-                inStock: false
-            },
             imageUrl: '../src/assets/img/toys.png'
-
         }
     },
     created() {
         this.debounceHandler = utilService.debounce(this.setFilterBy, 500)
     },
     methods: {
-        filterToys() {
-            const filterBy = { ...this.filterBy }
-            this.$store.commit({ type: 'setFilterBy', filterBy })
-
-            // If filtering in backend/service
-            // this.isLoading = true
-            // this.$store
-            //   .dispatch({ type: 'loadToys', filterBy })
-            //   .then(() => (this.isLoading = false))
-        },
         removeToy(toyId) {
             this.$store.dispatch({ type: 'removeToy', toyId })
-                .then(showSuccessMsg('Toy Removed'))
-                .catch(err => showErrorMsg('Toy Failed to remove'))
+            .then(showSuccessMsg('Toy Removed'))
+            .catch(err => showErrorMsg('Toy Failed to remove'))
         },
-        setFilterBy(filtered) {
-            this.filterBy = filtered
-            this.filterToys()
+        setFilterBy(filterBy) {
+            this.$store
+              .dispatch({ type: 'loadToys', filterBy })
+              .then(showSuccessMsg('Toys rendered'))
+              .catch(err => showErrorMsg('Toys Failed to render'))
         },
     },
     computed: {
