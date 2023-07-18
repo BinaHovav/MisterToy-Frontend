@@ -41,6 +41,14 @@ export const toyStore = {
           throw err
         })
     },
+    getAllToys() {
+      return toyService
+        .query()
+        .then()
+        .catch((err) => {
+          throw err
+        })
+    },
     saveToy({ commit, dispatch }, { toy }) {
       const actionType = toy._id ? 'updateToy' : 'addToy'
       return toyService.save(toy).then((savedToy) => {

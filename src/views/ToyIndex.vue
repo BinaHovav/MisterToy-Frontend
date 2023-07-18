@@ -3,8 +3,9 @@
         <ToyFilter @filtered="debounceHandler" />
         <img :src="imageUrl" >
 
-        <ToyList v-if="toys" :toys="toys" @removed="removeToy" />
-        <h1 v-else="noToys">no toys</h1>
+        <ToyList v-if="toys" :toys="toys" @removed="removeToy" />     
+        <!-- <h1 v-if="!toys">No Toys To Display</h1>  -->
+
         <!-- <div class="flex space-between">
             <button class="btn" @click="setPage(-1)">Prev</button>
             <button class="btn" @click="setPage(1)">Next</button>
@@ -15,7 +16,6 @@
 
 
 <script>
-// import { toyService } from '@/services/toy.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '@/services/event-bus.service.js'
 import { utilService } from '@/services/util.service.js'
 import ToyList from '@/cmps/ToyList.vue'

@@ -4,7 +4,9 @@ import AboutView from '../views/AboutView.vue'
 import ToyDetails from '../views/ToyDetails.vue'
 import ToyEdit from '../views/ToyEdit.vue'
 import ToyIndex from '../views/ToyIndex.vue'
- 
+
+import Dashboard from '../views/Dashboard.vue'
+// import GoogleMap from '../views/GoogleMap.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -12,29 +14,35 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/about',
       name: 'about',
-      component: AboutView
+      component: AboutView,
     },
 
     {
       path: '/toy',
       name: 'toyIndex',
-      component: ToyIndex 
+      component: ToyIndex,
     },
     {
       path: '/toy/:toyId',
       name: 'toyDetails',
-      component: ToyDetails 
+      component: ToyDetails,
     },
     {
       path: '/toy/edit/:toyId?',
       name: 'toyEdit',
-      component: ToyEdit 
+      component: ToyEdit,
     },
+    {
+      path: '/toy/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+    },
+
     // {
     //   path: '/toy',
     //   component: toyIndex,
@@ -49,8 +57,7 @@ const router = createRouter({
     //     },
     //   ],
     // },
-
-  ]
+  ],
 })
 
 export default router
