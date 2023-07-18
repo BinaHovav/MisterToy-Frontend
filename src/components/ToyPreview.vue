@@ -1,7 +1,11 @@
 <template>
     <section class="toy-preview">
-        <pre>{{ toy }}</pre>
-        <div class="tools">
+        <ul>{{ toy.name }}</ul>
+        <ul>{{ toy.price }}</ul>
+        <ul>
+            <li v-for="label in toy.labels" :key="label">{{ label }}</li>
+        </ul>
+            <div class="tools">
             <button @click="$emit('removed')" class="btn">
                 <span>x</span>
             </button>

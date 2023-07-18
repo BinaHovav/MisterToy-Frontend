@@ -1,6 +1,15 @@
 @import './base.css';
+@import './AppHeader.css';
+@import './ToyList.css';
+@import './ToyPreview.css';
+@import './ToyDetails.css';
+@import './HomeView.css';
+@import './ToyFilter.css';
+
 
 #app {
+  height:98vh;
+  background-color: #fffef4;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;

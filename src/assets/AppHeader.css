@@ -1,0 +1,34 @@
+.app-header{
+    position: sticky;
+    background-color: #2e52da;
+    margin-bottom: 20px;
+}
+
+.app-header nav{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5em;
+}
+
+.home-link {
+    background-color: #d21651;
+}
+
+.toy-link {
+    background-color: #a3cb2a;
+}
+
+.about-link {
+    background-color: #f7b821;
+}
+
+.nav-link {
+    padding: 10px 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

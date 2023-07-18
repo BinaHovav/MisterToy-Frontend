@@ -1,9 +1,17 @@
-<script>
-	export default {}
-</script>
+
 
 <template>
-	<div class="home">
-		<h1>This is an home page</h1>
+	<div class="home-view">
+        <img :src="imageUrl" >
 	</div>
 </template>
+
+<script>
+	export default {
+		data() {
+        return {
+            imageUrl: '../src/assets/img/toys.png'
+        }
+    }
+	}
+</script>

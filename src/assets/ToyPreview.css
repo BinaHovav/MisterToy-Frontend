@@ -1,0 +1,51 @@
+.toy-preview {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.toy-preview ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toy-preview ul li {
+  margin-bottom: 5px;
+}
+
+.toy-preview .tools {
+  display: flex;  
+  margin-top: 10px;
+}
+
+.toy-preview .tools button,
+.toy-preview .tools a {
+  margin-right: 10px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2d52da;
+  border: none;
+  border-radius: 4px;
+}
+
+.toy-preview .tools button:hover,
+.toy-preview .tools a:hover {
+  background-color: #2d52da;
+  cursor: pointer;
+}
+
+.toy-preview:nth-child(1){
+    background-color: #3fb8c6;
+}
+.toy-preview:nth-child(2){
+    background-color: #a3cb2a;
+}
+.toy-preview:nth-child(3){
+    background-color: #f6b821;
+}
+.toy-preview:nth-child(4){
+    background-color: #d21651;
+}

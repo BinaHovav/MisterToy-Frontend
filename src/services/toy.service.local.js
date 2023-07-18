@@ -41,6 +41,7 @@ function _createToys() {
       _createToy('Superman', utilService.getRandomIntInclusive(20, 100)),
       _createToy('Batman', utilService.getRandomIntInclusive(20, 150)),
       _createToy('Ironman', utilService.getRandomIntInclusive(20, 100)),
+      _createToy('Ironwoman', utilService.getRandomIntInclusive(20, 100)),
     ]
     utilService.saveToStorage(TOY_KEY, toys)
   }

@@ -1,19 +1,19 @@
 <template>
 	<header>
-		<img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+		<!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
-		<div class="wrapper">
-			<HelloWorld msg="You did it!" />
+		<div class="app-header">
+			<!-- <HelloWorld msg="You did it!" /> -->
 
 			<nav>
-				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/toy">Toys</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
-			</nav>
+     			<RouterLink to="/" class="nav-link home-link">Home</RouterLink>
+    			<RouterLink to="/toy" class="nav-link toy-link">Toys</RouterLink>
+    			<RouterLink to="/about" class="nav-link about-link">About</RouterLink>
+   			 </nav>		
 		</div>
 	</header>
 
-	<main class="main" :style="appStyles">
+	<main class="main" >
 		<RouterView />
 		<!-- <UserMessage /> -->
 	</main>
@@ -21,7 +21,7 @@
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import UserMessage from './components/UserMessage.js'
 
 

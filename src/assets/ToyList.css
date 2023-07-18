@@ -1,0 +1,14 @@
+
+.toy-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.toy-index img{
+
+    margin: 50px 100px;
+    height: 300px;
+    width:600px
+}
+

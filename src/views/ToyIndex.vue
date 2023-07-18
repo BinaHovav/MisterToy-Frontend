@@ -1,6 +1,8 @@
 <template>
     <section class="toy-index">
-        <!-- <ToyFilter @filteredTxt="debounceHandler" /> -->
+        <ToyFilter @filtered="debounceHandler" />
+        <img :src="imageUrl" >
+
         <ToyList v-if="toys" :toys="toys" @removed="removeToy" />
         <!-- <div class="flex space-between">
             <button class="btn" @click="setPage(-1)">Prev</button>
@@ -9,28 +11,38 @@
         <RouterView />
     </section>
 </template>
+
+
 <script>
 // import { toyService } from '@/services/toy.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '@/services/event-bus.service.js'
 import { utilService } from '@/services/util.service.js'
 import ToyList from '@/components/ToyList.vue'
+import ToyFilter from '@/components/ToyFilter.vue'
+
 export default {
     name: 'toyIndex',
     emits: ['removed'],
     data() {
         return {
             filterBy: {
-                txt: ''
-            }
+                txt: '',
+                minPrice: 0,
+                labels: [],
+                inStock: false
+            },
+            imageUrl: '../src/assets/img/toys.png'
+
         }
     },
     created() {
-        this.debounceHandler = utilService.debounce(this.setFilterByTxt, 500)
+        this.debounceHandler = utilService.debounce(this.setFilterBy, 500)
     },
     methods: {
         filterToys() {
             const filterBy = { ...this.filterBy }
             this.$store.commit({ type: 'setFilterBy', filterBy })
+
             // If filtering in backend/service
             // this.isLoading = true
             // this.$store
@@ -42,8 +54,8 @@ export default {
                 .then(showSuccessMsg('Toy Removed'))
                 .catch(err => showErrorMsg('Toy Failed to remove'))
         },
-        setFilterByTxt(txt) {
-            this.filterBy.txt = txt
+        setFilterBy(filtered) {
+            this.filterBy = filtered
             this.filterToys()
         },
     },
@@ -52,7 +64,7 @@ export default {
     },
     components: {
         ToyList,
-        // ToyFilter
+        ToyFilter
     }
 }
 </script>
