@@ -4,6 +4,7 @@
         <img :src="imageUrl" >
 
         <ToyList v-if="toys" :toys="toys" @removed="removeToy" />
+        <h1 v-else="noToys">no toys</h1>
         <!-- <div class="flex space-between">
             <button class="btn" @click="setPage(-1)">Prev</button>
             <button class="btn" @click="setPage(1)">Next</button>
