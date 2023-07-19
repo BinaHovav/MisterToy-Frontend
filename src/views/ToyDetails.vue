@@ -9,7 +9,7 @@
             </li>
         </ul>
         <p>In store since: {{ formattedCreatedAt }}</p>
-        <p>In stock: {{ toy.inStock }}</p>
+        <p>In stock: {{ toy.status }}</p>
     </section>
 </template>
 

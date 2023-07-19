@@ -42,6 +42,7 @@ export default {
             }
         },
         saveToy() {
+            console.log('this.toyToEdit', this.toyToEdit)
             this.$store.dispatch({ type: 'saveToy', toy: this.toyToEdit })
                 .then(updatedToy => {
                     showSuccessMsg(updatedToy.name, 'has been saved')

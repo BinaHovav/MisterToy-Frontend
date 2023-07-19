@@ -10,7 +10,7 @@
 	export default {
 		data() {
         return {
-            imageUrl: '../src/assets/img/toys.png'
+            imageUrl: './src/assets/img/toys.png'
         }
     }
 	}

@@ -1,24 +1,19 @@
 <template>
-
-<header>
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
+  <header>
     <div class="app-header">
-        <!-- <HelloWorld msg="You did it!" /> -->
-
-        <nav>
-             <RouterLink to="/" class="nav-link home-link">Home</RouterLink>
-             <RouterLink to="/toy" class="nav-link toy-link">Toys</RouterLink>
-             <RouterLink to="/about" class="nav-link about-link">About</RouterLink>
-        </nav>		
+      <nav>
+        <RouterLink to="/" class="nav-link home-link">Home</RouterLink>
+        <RouterLink to="/toy" class="nav-link toy-link">Toys</RouterLink>
+        <RouterLink to="/about" class="nav-link about-link">About</RouterLink>
+        <RouterLink to="/toy/dashboard" class="nav-link dashboard-link">Dashboard</RouterLink>
+        <RouterLink to="/toy/edit" class="btn-add">Add Toy</RouterLink>
+      </nav>
     </div>
-</header>
+  </header>
 </template>
 
 <script>
-
 export default {
-    name: 'AppHeader'
+  name: 'AppHeader',
 }
-
 </script>

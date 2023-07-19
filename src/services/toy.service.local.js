@@ -1,7 +1,7 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 const TOY_KEY = 'toyDB'
-// _createToys()
+
 export const toyService = {
   query,
   getById,
@@ -32,6 +32,7 @@ function getEmptyToy() {
     labels: [],
     createdAt: Date.now(),
     inStock: false,
+    // bcgColor:
   }
 }
 function _createToys() {

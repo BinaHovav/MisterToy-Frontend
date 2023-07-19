@@ -1,0 +1,50 @@
+.toy-preview {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  .tools {
+    display: flex;
+    margin-top: 10px;
+
+    button,
+    a {
+      margin-right: 10px;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: $txt-clr0;
+      background-color: $clr1;
+      border: none;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: darken($clr1, 20%);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:nth-child(4n + 1) {
+    background-color: $clr2;
+  }
+  &:nth-child(4n + 2) {
+    background-color: $clr3;
+  }
+  &:nth-child(4n + 3) {
+    background-color: $clr4;
+  }
+  &:nth-child(4n) {
+    background-color: $clr5;
+  }
+}
