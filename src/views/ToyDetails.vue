@@ -1,15 +1,11 @@
 <template>
     <section class="toy-details">
-        <h2>{{ toy.name }}</h2>
-        <h5>{{ toy._id }}</h5>
-        <p>Price: ${{ toy.price }}</p>
-        <ul>Categories:
-            <li class="category-item" v-for="label in toy.labels" :key="label">
-                 {{ label }}
-            </li>
-        </ul>
-        <p>In store since: {{ formattedCreatedAt }}</p>
-        <p>In stock: {{ toy.status }}</p>
+        <img :src="toy.img" />
+        <h2>Name: <span> {{ toy.name }} </span></h2>
+        <h2>Price: <span> ${{ toy.price }}</span></h2>
+        <h2>Labels: <span class="labels" v-for="label in toy.labels"> {{ label }} | </span></h2>
+        <h2>Added on: <span>{{ formattedCreatedAt }}</span></h2>
+        <h2>Status: <span v-if="toy.status === 'outStock'">out of stock</span><span v-else>in Stock</span></h2>
     </section>
 </template>
 

@@ -8,7 +8,8 @@
       <option value="outStock">out of Stock</option>
     </select>
     <div class="select-container">
-      <el-select-v2 v-model="filterBy.labels" :options="options" placeholder="Please select" style="width: 240px" multiple />
+      <el-select-v2 v-model="filterBy.labels" :options="options" placeholder="Please select" style="width: 240px"
+        multiple />
     </div>
     <select v-model="filterBy.sortBy">
       <option value="nameAsc">Name: A-Z</option>
