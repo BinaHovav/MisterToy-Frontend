@@ -7,6 +7,7 @@
         <RouterLink to="/about" class="nav-link about-link">About</RouterLink>
         <RouterLink to="/toy/dashboard" class="nav-link dashboard-link">Dashboard</RouterLink>
         <RouterLink to="/toy/edit" class="btn-add">Add Toy</RouterLink>
+        <a href="#" class="nav-link login">Login</a>
       </nav>
     </div>
   </header>
