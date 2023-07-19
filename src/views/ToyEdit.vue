@@ -77,7 +77,6 @@ export default {
             }
         },
         saveToy() {
-            console.log('this.toyToEdit', this.toyToEdit)
             this.$store.dispatch({ type: 'saveToy', toy: this.toyToEdit })
                 .then(updatedToy => {
                     showSuccessMsg(updatedToy.name, 'has been saved')
@@ -86,7 +85,7 @@ export default {
                 .catch(err => showErrorMsg('save failed'))
         },
         editToyImg() {
-            console.log('test');
+            // console.log('test');
         }
     },
     computed: {
