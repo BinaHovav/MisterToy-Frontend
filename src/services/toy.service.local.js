@@ -32,6 +32,7 @@ function getEmptyToy() {
     labels: [],
     createdAt: Date.now(),
     inStock: false,
+    // bcgColor:
   }
 }
 function _createToys() {

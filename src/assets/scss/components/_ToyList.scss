@@ -1,0 +1,20 @@
+.toy-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.toy-index img {
+    margin: 50px 100px;
+    height: 300px;
+    width: 600px;
+}
+
+.btn-add {
+    background-color: lighten($clr2, 10%);
+    color: $txt-clr0;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    border-radius: 10px;
+}
