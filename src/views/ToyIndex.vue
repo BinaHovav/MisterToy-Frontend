@@ -25,7 +25,7 @@ export default {
   emits: ['removed'],
   data() {
     return {
-      imageUrl: './src/assets/img/toys.png',
+      imageUrl: 'https://res.cloudinary.com/dyu8jwe4o/image/upload/v1689790313/toys_yhc739.png',
     }
   },
   created() {
