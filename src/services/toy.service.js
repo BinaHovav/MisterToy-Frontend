@@ -6,6 +6,7 @@ export const toyService = {
 	remove,
 	save,
 	getEmptyToy,
+	addToyMsg
 }
 
 function query(filterBy) {
@@ -25,6 +26,10 @@ function save(toy) {
 		return httpService.put(`toy/${toy._id}`, toy)
 	}
 	return httpService.post('toy', toy)
+}
+
+function addToyMsg(toyId,txt){
+	return httpService.post(`toy/${toyId}/msg`, {txt})
 }
 
 function getEmptyToy() {

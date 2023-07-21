@@ -8,8 +8,11 @@ export const userService = {
     remove,
     getById,
     getLoggedInUser,
+    saveUserToStorage,
+    removeUserFromStorage
 }
 const STORAGE_KEY = 'loggedinUser'
+
 function query() {
     return httpService.get('toy', filterBy)
 }
@@ -25,6 +28,7 @@ function remove(userId) {
 }
 function logout() {
     return httpService.post('auth/logout')
+    .then(sessionStorage.removeItem(STORAGE_KEY))
 }
 function getById(userId) {
     return httpService.get(`toy/${toyId}`)
@@ -35,4 +39,12 @@ function getLoggedInUser() {
 function _getUserFromSession() {
     const entity = sessionStorage.getItem(STORAGE_KEY)
     return JSON.parse(entity)
+}
+function saveUserToStorage(user) {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))
+    return user
+}
+
+function removeUserFromStorage() {
+    sessionStorage.removeItem(STORAGE_KEY)
 }

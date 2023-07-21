@@ -1,27 +1,43 @@
 .toy-details {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5em;
-  background-color: lighten($clr2, 10%);
-  border-radius: 4px;
-  padding: 20px;
-  color: darken($clr1, 30%);
   width: 500px;
   margin: auto;
-  img {
-    width: 100%;
-    height: 40vh;
-  }
-  h2 {
-    font-size: 1.2em;
-    font-family: KiddosyOutline;
-    span {
-      font-family: Arial, Helvetica, sans-serif;
-      color: lighten($txt-clr1, 15%);
-      font-size: 0.8em;
-      &.labels {
-        font-size: 0.7em;
+  .toy-show-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    background-color: lighten($clr2, 10%);
+    border-radius: 4px;
+    padding: 20px;
+    color: darken($clr1, 30%);
+    img {
+      width: 100%;
+      height: 40vh;
+    }
+    h2 {
+      font-size: 1.2em;
+      font-family: KiddosyOutline;
+      span {
+        font-family: Arial, Helvetica, sans-serif;
+        color: lighten($txt-clr1, 15%);
+        font-size: 0.8em;
+        &.labels {
+          font-size: 0.7em;
+        }
       }
     }
   }
+  .toy-msg {
+    .toy-reviews {
+      display: flex;
+      padding: 4px;
+    }
+    form {
+      textarea {
+        width: 100%;
+        height: 15vh;
+        resize: none;
+      }
+    }
+  }
+  
 }

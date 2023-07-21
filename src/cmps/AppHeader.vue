@@ -6,10 +6,12 @@
         <RouterLink to="/toy" class="nav-link toy-link">Toys</RouterLink>
         <RouterLink to="/about" class="nav-link about-link">About</RouterLink>
         <RouterLink to="/toy/dashboard" class="nav-link dashboard-link">Dashboard</RouterLink>
-        <RouterLink to="/toy/edit" class="btn-add">Add Toy</RouterLink>
-        <span v-if="this.logedUser">Welcome {{ this.logedUser.fullname }}</span>
-        <a v-if="!this.logedUser" href="#" class="nav-link login" @click="toggleLogin">Login</a>
-        <a v-if="this.logedUser" href="#" class="nav-link login" @click="logOut">Logout</a>
+        <RouterLink v-if="this.logedUser?.isAdmin" to="/toy/edit" class="btn-add">Add Toy</RouterLink>
+        <section>
+          <span v-if="this.logedUser">Welcome {{ this.logedUser.fullname }}</span>
+          <a v-if="!this.logedUser" href="#" class="nav-link login" @click="toggleLogin">Login</a>
+          <a v-if="this.logedUser" href="#" class="nav-link login" @click="logOut">Logout</a>
+        </section>
       </nav>
     </div>
     <section :class="show">
@@ -47,7 +49,6 @@
 </template>
 
 <script>
-// import { tr } from 'element-plus/es/locale';
 
 export default {
   name: 'AppHeader',
@@ -73,15 +74,21 @@ export default {
     },
     login() {
       this.$store.dispatch({ type: 'login', credentials: this.userData })
-      .then(()=>this.toggleLogin())
-      
+        .then(() => {
+          this.toggleLogin()
+          this.$router.push('/toy')
+        })
     },
     signup() {
       this.$store.dispatch({ type: 'signUp', signupInfo: this.newUser })
-      .then(()=>this.toggleLogin())
+        .then(() => {
+          this.toggleLogin()
+          this.$router.push('/toy')
+        })
     },
-    logOut(){
-      this.$store.dispatch({type: 'logOut'})
+    logOut() {
+      this.$store.dispatch({ type: 'logOut' })
+        .then(() => this.$router.push('/toy'))
     }
   },
   computed: {

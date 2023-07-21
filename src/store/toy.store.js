@@ -4,12 +4,15 @@ export const toyStore = {
   state: {
     toys: [],
     currToy: null,
+    toyMsgs: []
   },
   getters: {
     toysToDisplay({ toys }) {
-      if (!toys) return null
-      return toys
+      return toys || null
     },
+    currToyMsgs({ toyMsgs }) {
+      return toyMsgs || []
+    }
   },
   mutations: {
     setToys(state, { toys }) {
@@ -17,6 +20,7 @@ export const toyStore = {
     },
     setCurrToy(state, { toy }) {
       state.currToy = toy
+      state.toyMsgs = toy.msgs
     },
     addToy({ toys }, { toy }) {
       toys.unshift(toy)
@@ -29,6 +33,9 @@ export const toyStore = {
       const idx = toys.findIndex((toy) => toy._id === toyId)
       toys.splice(idx, 1)
     },
+    updateToyMsg(state, { toyId, msg }) {
+      state.toyMsgs.push(msg)
+    }
   },
   actions: {
     loadToys({ commit }, { filterBy }) {
@@ -78,5 +85,9 @@ export const toyStore = {
     setFilterBy(state, { filterBy }) {
       state.filterBy = filterBy
     },
+    addToyMsg({ commit }, { toyId, msg }) {
+      return toyService.addToyMsg(toyId, msg)
+        .then(msg => commit({ type: 'updateToyMsg', toyId, msg }))
+    }
   },
 }

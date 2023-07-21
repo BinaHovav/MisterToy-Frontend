@@ -9,8 +9,8 @@
       <li v-for="label in toy.labels" :key="label">{{ label }}</li>
     </h2>
     <div class="tools">
-      <button @click="$emit('removed')" class="btn">Remove</button>
-      <RouterLink :to="'/toy/edit/' + toy._id" class="btn">
+      <button v-if="loggedUser?.isAdmin" @click="$emit('removed')" class="btn">Remove</button>
+      <RouterLink v-if="loggedUser?.isAdmin" :to="'/toy/edit/' + toy._id" class="btn">
         <span>Edit</span>
       </RouterLink>
       <RouterLink :to="'/toy/' + toy._id" class="btn">
@@ -25,5 +25,10 @@ export default {
   name: 'toyPreview',
   props: { toy: { type: Object, required: true } },
   emits: ['removed'],
+  computed: {
+    loggedUser() {
+      return this.$store.getters.user
+    }
+  }
 }
 </script>
