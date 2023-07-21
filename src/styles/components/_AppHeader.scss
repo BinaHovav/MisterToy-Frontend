@@ -1,61 +1,120 @@
-.app-header {
-    font-family: KiddosyRegular, sans-serif;
-    position: sticky;
-    background-color: $clr1;
-    margin-bottom: 20px;
+header {
+    position: relative;
 
-    nav {
-        display: flex;
-        font-size: 1.5em;
+    .app-header {
+        font-family: KiddosyRegular, sans-serif;
+        position: sticky;
+        background-color: $clr1;
+        margin-bottom: 20px;
 
-        .nav-link {
-            padding: 10px 25px;
-            color: $txt-clr0;
-            text-decoration: none;
-        }
+        nav {
+            display: flex;
+            font-size: 1.5em;
 
-        .home-link {
-            background-color: $clr5;
+            .nav-link {
+                padding: 10px 25px;
+                color: $txt-clr0;
+                text-decoration: none;
+            }
 
-            &:hover {
-                background-color: darken($clr5, 10%);
+            .home-link {
+                background-color: $clr5;
+
+                &:hover {
+                    background-color: darken($clr5, 10%);
+                }
+            }
+
+            .toy-link {
+                background-color: $clr3;
+
+                &:hover {
+                    background-color: darken($clr3, 10%);
+                }
+            }
+
+            .about-link {
+                background-color: $clr4;
+
+                &:hover {
+                    background-color: darken($clr4, 10%);
+                }
+            }
+
+            .dashboard-link {
+                background-color: $clr1;
+
+                &:hover {
+                    background-color: darken($clr1, 10%);
+                }
+            }
+
+            .login {
+                margin-inline-start: auto;
+
+                background: linear-gradient(30deg, $clr1, $clr2, $clr3, $clr4, $clr5);
+
+                &:hover {
+                    background-color: darken($clr4, 10%);
+                }
             }
         }
 
-        .toy-link {
-            background-color: $clr3;
+    }
 
-            &:hover {
-                background-color: darken($clr3, 10%);
-            }
+    //login
+    section {
+        display: none;
+
+        &.show {
+            display: block;
+            transition: 0.8s;
         }
 
-        .about-link {
-            background-color: $clr4;
+        .login-dropdown {
+            position: absolute;
+            display: none;
+            right: 0;
+            top: 60px;
+            flex-direction: column;
+            text-align: center;
 
-            &:hover {
-                background-color: darken($clr4, 10%);
+            padding: 10px;
+            box-shadow: -13px 15px 5px -4px rgba(0, 0, 0, 0.67);
+            -webkit-box-shadow: -13px 15px 5px -4px rgba(0, 0, 0, 0.67);
+            -moz-box-shadow: -13px 15px 5px -4px rgba(0, 0, 0, 0.67);
+
+            z-index: 999;
+            background-color: $txt-clr0;
+
+            img {
+                aspect-ratio: 1/1;
             }
-        }
 
-        .dashboard-link {
-            background-color: $clr1;
+            &.shown {
+                display: flex;
+                flex-direction: column;
 
-            &:hover {
-                background-color: darken($clr1, 10%);
+                form {
+                    display: flex;
+                    flex-direction: column;
+                }
             }
-        }
 
-        .login {
-            margin-inline-start: auto;
+            span {
+                color: purple;
+                text-decoration: underline;
 
-            background: linear-gradient(30deg, $clr1, $clr2, $clr3, $clr4, $clr5);
-
-            &:hover {
-                background-color: darken($clr4, 10%);
+                &:hover {
+                    cursor: pointer;
+                }
             }
+
+
+
         }
     }
+
 
 
 }
