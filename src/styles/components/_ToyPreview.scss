@@ -1,22 +1,24 @@
 .toy-preview {
+  color: lighten($txt-clr1, 10%);
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 400px;
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
 
   ul {
-    margin: 0;
+    font-size: 20px;
     padding: 0;
-    list-style: none;
-
-    li {
-      margin-bottom: 5px;
-    }
   }
 
   .tools {
     display: flex;
-    margin-top: 10px;
+    justify-content: center;
+    margin-top: 20px;
 
     button,
     a {
@@ -34,7 +36,29 @@
       }
     }
   }
+  .h2-preview-name {
+    font-size: 1.7em;
+  }
+  .img-preview {
+    height: 50%;
+    width: 100%;
+    margin: auto 0;
+    aspect-ratio: 1/1;
+  }
 
+  .preview-labels {
+    display: flex;
+    font-size: 1em;
+    gap: 6px;
+    list-style: none;
+
+    li {
+      align-content: center;
+      padding: 4px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+  }
   &:nth-child(4n + 1) {
     background-color: $clr2;
   }

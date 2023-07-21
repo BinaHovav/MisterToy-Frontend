@@ -10,7 +10,7 @@
 	export default {
 		data() {
         return {
-            imageUrl: './src/assets/img/homePage.jpg'
+            imageUrl: 'https://res.cloudinary.com/dyu8jwe4o/image/upload/v1689790313/toys_yhc739.png'
         }
     }
 	}

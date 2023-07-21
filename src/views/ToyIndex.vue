@@ -1,7 +1,7 @@
 <template>
   <section class="toy-index">
     <ToyFilter @filtered="debounceHandler" />
-    <img :src="imageUrl" />
+    <img class="index-img" :src="imageUrl" />
 
     <ToyList v-if="toys" :toys="toys" @removed="removeToy" />
     <!-- <h1 v-if="!toys">No Toys To Display</h1>  -->
@@ -25,7 +25,7 @@ export default {
   emits: ['removed'],
   data() {
     return {
-      imageUrl: './src/assets/img/toys.png',
+      imageUrl: 'https://res.cloudinary.com/dyu8jwe4o/image/upload/v1689790313/toys_yhc739.png',
     }
   },
   created() {
