@@ -7,7 +7,6 @@
         <RouterLink to="/about" class="nav-link about-link">About</RouterLink>
         <RouterLink to="/toy/dashboard" class="nav-link dashboard-link">Dashboard</RouterLink>
         <!-- <RouterLink to="/test" class="nav-link test-link">test</RouterLink> -->
-        <RouterLink to="/toy/edit" class="btn-add">Add Toy</RouterLink>
         <RouterLink v-if="this.logedUser?.isAdmin" to="/toy/edit" class="btn-add">Add Toy</RouterLink>
         <section>
           <span v-if="this.logedUser">Welcome {{ this.logedUser.fullname }}</span>

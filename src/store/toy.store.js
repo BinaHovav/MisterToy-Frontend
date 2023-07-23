@@ -88,6 +88,8 @@ export const toyStore = {
     addToyMsg({ commit }, { toyId, msg }) {
       return toyService.addToyMsg(toyId, msg)
         .then(msg => commit({ type: 'updateToyMsg', toyId, msg }))
-    }
+    },
+
+
   },
 }
