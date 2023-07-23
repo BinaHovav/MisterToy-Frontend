@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import ToyDetails from '../views/ToyDetails.vue'
 import ToyEdit from '../views/ToyEdit.vue'
 import ToyIndex from '../views/ToyIndex.vue'
+// import DragAndDrop from '../views/DragAndDrop.vue'
 
 import Dashboard from '../views/Dashboard.vue'
 // import GoogleMap from '../views/GoogleMap.vue'
@@ -32,6 +33,7 @@ const router = createRouter({
       name: 'toyDetails',
       component: ToyDetails,
     },
+
     {
       path: '/toy/edit/:toyId?',
       name: 'toyEdit',
@@ -42,6 +44,12 @@ const router = createRouter({
       name: 'dashboard',
       component: Dashboard,
     },
+    // {
+    //   path: '/test',
+    //   name: 'DragAndDrop',
+    //   component: DragAndDrop,
+    // },
+
 
     // {
     //   path: '/toy',
