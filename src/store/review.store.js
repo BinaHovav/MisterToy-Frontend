@@ -6,7 +6,9 @@ export const reviewStore = {
         reviews: []
     },
     getters: {
-        reviews({ reviews }) { return reviews },
+        reviews(state) {
+            return state.reviews
+        },
     },
     mutations: {
         setReviews(state, { reviews }) {
@@ -20,12 +22,11 @@ export const reviewStore = {
         },
     },
     actions: {
-        async addReview(context, { review }) {
+        async addReview(context, { toyId, txt }) {
             try {
+                let review = { toyId, txt }
                 review = await reviewService.add(review)
                 context.commit({ type: 'addReview', review })
-                context.dispatch({ type: 'increaseScore' })
-
                 return review
             } catch (err) {
                 console.log('reviewStore: Error in addReview', err)

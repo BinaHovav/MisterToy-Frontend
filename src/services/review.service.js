@@ -21,17 +21,17 @@ export const reviewService = {
   query,
   remove
 }
+// var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
+// return httpService.get(`review${queryStr}`)
 
 function query(filterBy) {
-  // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
-  // return httpService.get(`review${queryStr}`)
-  return httpService.get(`review`, filterBy)
+  return httpService.get('review',  filterBy )
 }
 
 async function remove(reviewId) {
-  await httpService.delete(`review / ${reviewId}`)
+  await httpService.delete(`review/${reviewId}`)
 }
 
-async function add({ txt, aboutUserId }) {
-  return httpService.post(`review`, { txt, aboutUserId })
+function add({ txt, toyId }) {
+  return httpService.post(`review`, { txt, toyId })
 }

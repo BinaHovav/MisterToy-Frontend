@@ -21,12 +21,13 @@
         </article>
     </section>
     <section class="toy-reviews">
-        <form @submit.prevent="addReview">
-            <textarea type="text" v-model="review.body" placeholder="Enter review..." />
-            <button>Save</button>
+        <form @submit.prevent="addReview" >
+            <textarea type="text" v-model="reviewTxt" placeholder="Enter review..." :disabled="!this.$store.getters.user" />
+            <button :disabled="!this.$store.getters.user">Save</button>
         </form>
-        <article class="review" v-for="review in reviews">
-            <p>{{ review.body }}</p>
+        <article class="review flex" v-for="review in reviews">
+            <p>{{ review.txt }}</p>
+            <button @click="removeReview(review._id)">X</button>
         </article>
     </section>
 </template>
@@ -39,7 +40,7 @@ export default {
         return {
             toy: {},
             msg: '',
-            newReview: '',
+            reviewTxt: '',
 
         }
     },
@@ -56,9 +57,7 @@ export default {
         },
         async loadReviews() {
             const { toyId } = this.$route.params
-            const filterBy = {
-                toyId,
-            }
+            const filterBy = { toyId }
             try {
                 await this.$store.dispatch({ type: 'loadReviews', filterBy })
             }
@@ -78,8 +77,11 @@ export default {
             this.msg = ''
         },
         addReview() {
-            this.$store.dispatch({ type: "addToyreview", toyId: this.toy._id, review: this.review })
-            this.review = ''
+            this.$store.dispatch({ type: "addReview", toyId: this.toy._id, txt: this.reviewTxt })
+            this.reviewTxt = ''
+        },
+        removeReview(reviewId) {
+            this.$store.dispatch({ type: "removeReview", reviewId })
         }
     },
     computed: {
