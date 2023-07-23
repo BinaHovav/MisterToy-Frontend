@@ -82,7 +82,10 @@ export default {
                     showSuccessMsg(updatedToy.name, 'has been saved')
                     this.$router.push('/toy')
                 })
-                .catch(err => showErrorMsg('save failed'))
+                .catch(err => {
+                    showErrorMsg('save failed')
+                    this.$router.push('/toy')
+                })
         },
         editToyImg() {
             // console.log('test');

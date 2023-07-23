@@ -34,6 +34,7 @@ export const userStore = {
             return userService.login(credentials)
                 .then(user => {
                     commit({ type: 'logUser', user })
+                    userService.saveUserToStorage(user)
                 })
         },
         signUp({ commit }, { signupInfo }) {
@@ -44,7 +45,10 @@ export const userStore = {
         },
         logOut({ commit }) {
             return userService.logout()
-                .then(() => commit({ type: 'logout' }))
+                .then(() => {
+                    commit({ type: 'logout' })
+                    userService.removeUserFromStorage()
+                })
         },
         addOrder(context) {
             return userService.addOrder(context.state.cart, context.getters.cartTotal)
