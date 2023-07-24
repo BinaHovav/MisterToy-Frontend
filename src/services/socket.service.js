@@ -1,5 +1,5 @@
-// import io from 'socket.io-client'
-// import { userService } from './user.service'
+import io from 'socket.io-client'
+import { userService } from './user-service.js'
 
 export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
 export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
@@ -14,13 +14,13 @@ const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 // for debugging from console
 window.socketService = socketService
 
-// socketService.setup()
+socketService.setup()
 
 
 function createSocketService() {
@@ -29,7 +29,7 @@ function createSocketService() {
     setup() {
       socket = io(baseUrl)
       setTimeout(()=>{
-        const user = userService.getLoggedinUser()
+        const user = userService.getLoggedInUser()
         if (user) this.login(user._id)
       }, 500)
     },
@@ -99,7 +99,7 @@ function createDummySocketService() {
       this.emit(SOCKET_EVENT_ADD_MSG, { from: 'Someone', txt: 'Aha it worked!' })
     },
     testUserUpdate() {
-      this.emit(SOCKET_EVENT_USER_UPDATED, {...userService.getLoggedinUser(), score: 555})
+      this.emit(SOCKET_EVENT_USER_UPDATED, {...userService.getLoggedInUser(), score: 555})
     },
   }
   window.listenersMap = listenersMap

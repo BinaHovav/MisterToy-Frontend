@@ -34,6 +34,8 @@
 
 
 <script>
+import { socketService, SOCKET_EMIT_SET_TOPIC } from '../services/socket.service.js'
+
 export default {
     name: 'toyDetails',
     data() {
@@ -47,6 +49,7 @@ export default {
     created() {
         this.loadToy()
         this.loadReviews()
+        socketService.emit(SOCKET_EMIT_SET_TOPIC, 'hello')
     },
     methods: {
         loadToy() {
